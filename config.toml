@@ -1,0 +1,32 @@
+baseurl = "https://resc.github.io/"
+languageCode = "en-us"
+title = "The Dizzy Coder"
+theme = "beautifulhugo"
+pygmentsUseClasses = true
+googleAnalytics = "UA-78787337-1"
+
+[Params]
+  logo = "img/avatar-icon.png"
+  subtitle = "Build a beautiful and simple website in minutes"
+
+[Author]
+  name = "Remco Schoeman"
+  email = "remco.schoeman+nospambotsplease@gmail.com"
+  github = "resc"
+  stackoverflow = "142676/remco-schoeman"
+
+[[menu.main]]
+    name = "Blog"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "/page/about/"
+    weight = 2
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
