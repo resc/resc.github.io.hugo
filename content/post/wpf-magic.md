@@ -27,7 +27,7 @@ and because a good programmer is a lazy programmer I'll use convention over conf
 The conventions are:
 
 * View type names end with 'View'
-* Model types names end with 'Model'
+* Model type names end with 'Model'
 * View and Model live right next to each other in the same namespace and assembly.
 * ContentControls are magic.
 
