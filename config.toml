@@ -7,7 +7,7 @@ googleAnalytics = "UA-78787337-1"
 
 [Params]
   logo = "img/avatar-icon.png"
-  subtitle = "Build a beautiful and simple website in minutes"
+  subtitle = "C#, WPF and some Go too"
 
 [Author]
   name = "Remco Schoeman"

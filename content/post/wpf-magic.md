@@ -1,6 +1,6 @@
 +++
 date = "2016-06-04T11:10:02+02:00"
-draft = true
+draft = false
 title = "WPF Magic Without Frameworks"
 subtitle = "How to build simple user interfaces without big frameworks"
 tags = [ "Development", "C#", "WPF" ]
