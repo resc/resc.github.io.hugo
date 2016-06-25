@@ -1,27 +1,29 @@
 +++
 bigimg = ""
-date = "2016-06-05T11:05:34+02:00"
+date = "2016-06-25T00:00:00+02:00"
 subtitle = "How to make the user do what you need him to do"
 title = "Cancel That Please"
-tags = ["C#", "WPF", "TabControl", "Selector" ]
+tags = ["C#", "WPF", "TabControl", "Selector", "Cancel" ]
 +++
 
-I was working with the [TabControl](https://msdn.microsoft.com/en-us/library/system.windows.controls.tabcontrol(v=vs.110).aspx) the other day and I wanted to prevent the user from abandoning the task he was currently performing by cancelling the selection of a new tab. This was more dificult than expected because controls derived from Selector do not implement a SelectionChanging event with which you can cancel the selection change.
+I was working with the [TabControl](https://msdn.microsoft.com/en-us/library/system.windows.controls.tabcontrol(v=vs.110).aspx) the other day
+ and I wanted to prevent the user from abandoning the task he was currently performing by cancelling the selection of a new tab. 
+
+This was more dificult than expected because [Selector](https://msdn.microsoft.com/en-us/library/system.windows.controls.primitives.selector(v=vs.110).aspx)
+ does not implement a SelectionChanging event with which you can cancel the selection changes.
+
+Enter the  *SelectorAttachedProperties.HasActivatableSupport* dependency property. Together with an *IActivatable* interface that is implemented by the model for the tab page it will take care of the nasty details of cancelling a selection.
+
+the *Activate* and *Deactivate* methods wil get called on the model when a tab is switched, and if  *Deactivate* returns false the tab won't switch.
 
 
-
-So, you've got users that are motivationally impaired, cognitively challenged, or they just cannot avoid that ID-10-T error code. And you want to help them get though life with a minimum of frustration by implementing a "Are You Sure?" ( which is annoying to them and makes them doubt themselves, *mwuhahahaha* ) or an auto-save feature ( You're such a nice person, I can tell! ).
-
-Enter the  SelectorAttachedProperties.HasActivatableSupport dependency property.
-
+[See the full code here](https://github.com/resc/wpfmagic/tree/master/SelectorAttachedPropertiesHasActivatableSupport)
 
 ```xaml
  <TabControl utils:SelectorAttachedProperties.HasActivatableSupport="True">
   <!-- ... -->
 </TabControl>
 ```
-
-
 
 ```csharp
     /// <summary> IActivatable should be implemented by a ViewModel. </summary>
@@ -127,7 +129,7 @@ Enter the  SelectorAttachedProperties.HasActivatableSupport dependency property.
 
 ```
 
-References
+References That Inspired This Post
 ====
 1. [Stack Overflow](http://stackoverflow.com/questions/30706758/how-to-cancel-tab-change-in-wpf-tabcontrol)
 2. [CodeRelief.NET](https://coderelief.net/2011/11/07/fixing-issynchronizedwithcurrentitem-and-icollectionview-cancel-bug-with-an-attached-property/)
