@@ -9,7 +9,7 @@ tags = ["C#", "WPF", "TabControl", "Selector", "Cancel" ]
 I was working with the [TabControl](https://msdn.microsoft.com/en-us/library/system.windows.controls.tabcontrol(v=vs.110).aspx) the other day
  and I wanted to prevent the user from abandoning the task he was currently performing by cancelling the selection of a new tab. 
 
-This was more dificult than expected because [Selector](https://msdn.microsoft.com/en-us/library/system.windows.controls.primitives.selector(v=vs.110).aspx)
+This was more difficult than expected because [Selector](https://msdn.microsoft.com/en-us/library/system.windows.controls.primitives.selector(v=vs.110).aspx)
  does not implement a SelectionChanging event with which you can cancel the selection changes.
 
 Enter the  *SelectorAttachedProperties.HasActivatableSupport* dependency property. Together with an *IActivatable* interface that is implemented by the model for the tab page it will take care of the nasty details of cancelling a selection.
